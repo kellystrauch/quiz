@@ -1,4 +1,4 @@
-html, body{
+body{
 	background-color: #54478c;
 }
 h1{
@@ -39,14 +39,14 @@ input.incorrect{
 }
 input.correct{
 	margin-top: 1px;
-	border: 1.5px solid #90be6d;
+	border: 1.5px solid #03c04a;
 }
 .fa{
 	font-size: 24px;
 	margin-left: 5px;
 }
 .fa-check-circle{
-	color: #90be6d;
+	color: #03c04a;
 }
 .fa-times-circle{
 	color: #f94144;
