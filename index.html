@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Required meta tags for Bootstrap -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>
+		2020 Streaming Trivia!
+	</title>
+
+	<!-- Import Google Font -->
+	<link href="https://fonts.googleapis.com/css2?family=Rowdies&display=swap" rel="stylesheet">
+
+	<!-- Import FontAwesome CDN -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+	<!-- CSS for this site -->
+	<link rel="stylesheet" type="text/css" href="stylesheet.css">
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-sm-12">
+				<h1>2020 Streaming Trivia!</h1>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-1">
+				Q: 
+			</div>
+			<div class="col-sm-11">
+				Debuting on CBS Access in January 2020, this sci-fi series sees Patrick Stewart reprising his iconic role from Star Trek: The Next Generation.
+			</div>
+		</div>
+		<div class="row answer-row">
+			<div class="col-sm-1">
+				A: 
+			</div>
+			<div class="col-sm-11">
+				<input placeholder="Enter your answer (one word)" id="answer0" onchange="clearFormatting(this)">
+				<span></span>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-1">
+				Q: 
+			</div>
+			<div class="col-sm-11">
+				Debuting on Netflix in March 2020, this documentary series features the eccentric personality of Joe Exotic.
+			</div>
+		</div>
+		<div class="row answer-row">
+			<div class="col-sm-1">
+				A: 
+			</div>
+			<div class="col-sm-11">
+				<input placeholder="Enter your answer (two words)" id="answer1" onchange="clearFormatting(this)">
+				<span></span>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-1">
+				Q: 
+			</div>
+			<div class="col-sm-11">
+				Debuting on Prime Video in March 2020, this comedy series imagines a world in which someone can purchase an afterlife that's (mostly) of their choosing.
+			</div>
+		</div>
+		<div class="row answer-row">
+			<div class="col-sm-1">
+				A: 
+			</div>
+			<div class="col-sm-11">
+				<input placeholder="Enter your answer (one word)" id="answer2" onchange="clearFormatting(this)">
+				<span></span>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-1">
+				Q: 
+			</div>
+			<div class="col-sm-11">
+				Debuting (in film form) on Disney+ in July 2020, this popular Broadway musical centers on the first U.S. Secretary of the Treasury.
+			</div>
+		</div>
+		<div class="row answer-row">
+			<div class="col-sm-1">
+				A: 
+			</div>
+			<div class="col-sm-11">
+				<input placeholder="Enter your answer (one word)" id="answer3" onchange="clearFormatting(this)">
+				<span></span>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-1">
+				Q: 
+			</div>
+			<div class="col-sm-11">
+				Debuting on Hulu in July 2020, this romantic comedy starring Andy Samberg and Cristin Milioti is often compared to the rom com classic Groundhog Day.
+			</div>
+		</div>
+		<div class="row answer-row">
+			<div class="col-sm-1">
+				A: 
+			</div>
+			<div class="col-sm-11">
+				<input placeholder="Enter your answer (two words)" id="answer4" onchange="clearFormatting(this)">
+				<span></span>
+			</div>
+		</div>
+
+		<hr>
+
+		<div class="row">
+			<div class="col-sm-12">
+				<button type="button" class="btn btn-dark" onclick="clearAnswers()">Reset Answers</button>
+				<button type="button" class="btn btn-dark" onclick="gradeAnswers()"><b>Grade Me!</b></button>
+			</div>
+		</div>
+
+	</div>
+
+	<script>
+		function getUserInputs(){
+			//note: this gets the whole input for each, not just the value of the input
+			let userInputs = [];
+			userInputs.push( document.getElementById("answer0") );
+			userInputs.push( document.getElementById("answer1") );
+			userInputs.push( document.getElementById("answer2") );
+			userInputs.push( document.getElementById("answer3") );
+			userInputs.push( document.getElementById("answer4") );
+
+			return userInputs;
+		}
+
+		function gradeAnswers(){
+			//get user inputs
+			let userInputs = getUserInputs();
+
+			//create array with correct answers
+			let answers = ['picard', 'tiger king', 'upload', 'hamilton', 'palm springs'];
+
+			//compare each input to each correct answer
+			for(let i=0; i<userInputs.length; i++){
+				if(userInputs[i].value.toLowerCase() == answers[i]){
+					markCorrect(userInputs[i]);
+				}else{
+					markIncorrect(userInputs[i]);
+				}
+			}
+		}
+
+		function markCorrect(input){
+			//add checkmark next to input
+			input.nextSibling.nextSibling.innerHTML = '<i class="fa fa-check-circle"></i>';
+
+			//remove red border (if answer was previously incorrect)
+			input.classList.remove("incorrect");
+
+			//add green border
+			input.classList.add("correct");
+		}
+
+		function markIncorrect(input){
+			//add X next to input
+			input.nextSibling.nextSibling.innerHTML = '<i class="fa fa-times-circle"></i>';
+
+			//remove green border (if answer was previously incorrect)
+			input.classList.remove("correct");
+
+			//add red border to input
+			input.classList.add("incorrect");
+		}
+
+		function clearAnswers(){
+			//get user inputs
+			let userInputs = getUserInputs();
+
+			for(let i=0; i<userInputs.length; i++){
+				//clear inputs
+				userInputs[i].value = '';
+
+				//clear formatting
+				clearFormatting(userInputs[i]);
+			}
+		}
+
+		function clearFormatting(input){
+			//remove red/green border (if answer was previously graded)
+			input.classList.remove("correct");
+			input.classList.remove("incorrect");
+
+			//remove check or X next to input (if answer was previously graded)
+			input.nextSibling.nextSibling.innerHTML = '';
+		}
+	</script>
+
+	<!-- scripts for Bootstrap -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>

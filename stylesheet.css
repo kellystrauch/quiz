@@ -1,0 +1,53 @@
+html, body{
+	background-color: #54478c;
+}
+h1{
+	font-family: 'Rowdies', cursive;
+}
+.container{
+	max-width: 700px;
+	background-color: rgba(255, 255, 255, 0.95);
+	padding: 20px 30px;
+	margin-top: 15px;
+}
+input{
+	min-width: 310px;
+	margin-bottom: 5px;
+}
+.col-sm-1{
+	font-family: 'Rowdies', cursive;
+	font-size: 20px;
+	text-align: center;
+}
+.col-sm-12{
+	text-align: center;
+}
+hr{
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+button{
+	margin-right: 20px;
+	margin-top: 10px;
+}
+.answer-row{
+	margin-top: 10px;
+}
+input.incorrect{
+	margin-top: 1px;
+	border: 1.5px solid #f94144;
+}
+input.correct{
+	margin-top: 1px;
+	border: 1.5px solid #90be6d;
+}
+.fa{
+	font-size: 24px;
+	margin-left: 5px;
+}
+.fa-check-circle{
+	color: #90be6d;
+}
+.fa-times-circle{
+	color: #f94144;
+}
