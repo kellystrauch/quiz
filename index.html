@@ -48,7 +48,7 @@
 				A: 
 			</div>
 			<div class="col-sm-11">
-				<input placeholder="Enter your answer (one word)" id="answer0" onchange="clearFormatting(this)">
+				<input placeholder="Enter your answer (one word)" id="answer1" onchange="clearFormatting(this)">
 				<span></span>
 			</div>
 		</div>
@@ -68,7 +68,7 @@
 				A: 
 			</div>
 			<div class="col-sm-11">
-				<input placeholder="Enter your answer (two words)" id="answer1" onchange="clearFormatting(this)">
+				<input placeholder="Enter your answer (two words)" id="answer2" onchange="clearFormatting(this)">
 				<span></span>
 			</div>
 		</div>
@@ -88,7 +88,7 @@
 				A: 
 			</div>
 			<div class="col-sm-11">
-				<input placeholder="Enter your answer (one word)" id="answer2" onchange="clearFormatting(this)">
+				<input placeholder="Enter your answer (one word)" id="answer3" onchange="clearFormatting(this)">
 				<span></span>
 			</div>
 		</div>
@@ -108,7 +108,7 @@
 				A: 
 			</div>
 			<div class="col-sm-11">
-				<input placeholder="Enter your answer (one word)" id="answer3" onchange="clearFormatting(this)">
+				<input placeholder="Enter your answer (one word)" id="answer4" onchange="clearFormatting(this)">
 				<span></span>
 			</div>
 		</div>
@@ -128,7 +128,7 @@
 				A: 
 			</div>
 			<div class="col-sm-11">
-				<input placeholder="Enter your answer (two words)" id="answer4" onchange="clearFormatting(this)">
+				<input placeholder="Enter your answer (two words)" id="answer5" onchange="clearFormatting(this)">
 				<span></span>
 			</div>
 		</div>
@@ -145,31 +145,22 @@
 	</div>
 
 	<script>
-		function getUserInputs(){
-			//note: this gets the whole input for each, not just the value of the input
-			let userInputs = [];
-			userInputs.push( document.getElementById("answer0") );
-			userInputs.push( document.getElementById("answer1") );
-			userInputs.push( document.getElementById("answer2") );
-			userInputs.push( document.getElementById("answer3") );
-			userInputs.push( document.getElementById("answer4") );
-
-			return userInputs;
+		function getInputs(){
+			let inputs = document.getElementsByTagName("input");
+			return inputs;
 		}
 
 		function gradeAnswers(){
-			//get user inputs
-			let userInputs = getUserInputs();
-
 			//create array with correct answers
 			let answers = ['picard', 'tiger king', 'upload', 'hamilton', 'palm springs'];
 
 			//compare each input to each correct answer
-			for(let i=0; i<userInputs.length; i++){
-				if(userInputs[i].value.toLowerCase() == answers[i]){
-					markCorrect(userInputs[i]);
+			let inputs = getInputs();
+			for(let i=0; i<inputs.length; i++){
+				if(inputs[i].value.toLowerCase() == answers[i]){
+					markCorrect(inputs[i]);
 				}else{
-					markIncorrect(userInputs[i]);
+					markIncorrect(inputs[i]);
 				}
 			}
 		}
@@ -197,15 +188,13 @@
 		}
 
 		function clearAnswers(){
-			//get user inputs
-			let userInputs = getUserInputs();
-
-			for(let i=0; i<userInputs.length; i++){
+			let inputs = getInputs();
+			for(let i=0; i<inputs.length; i++){
 				//clear inputs
-				userInputs[i].value = '';
+				inputs[i].value = '';
 
 				//clear formatting
-				clearFormatting(userInputs[i]);
+				clearFormatting(inputs[i]);
 			}
 		}
 
