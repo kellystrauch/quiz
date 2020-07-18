@@ -40,7 +40,9 @@
 				Q: 
 			</div>
 			<div class="col-sm-11">
-				Debuting on CBS Access in January 2020, this sci-fi series sees Patrick Stewart reprising his iconic role from Star Trek: The Next Generation.
+				<label for="answer1">
+					Debuting on CBS Access in January 2020, this sci-fi series sees Patrick Stewart reprising his iconic role from Star Trek: The Next Generation.
+				</label>
 			</div>
 		</div>
 		<div class="row answer-row">
@@ -60,7 +62,9 @@
 				Q: 
 			</div>
 			<div class="col-sm-11">
-				Debuting on Netflix in March 2020, this documentary series features the eccentric personality of Joe Exotic.
+				<label for="answer2">
+					Debuting on Netflix in March 2020, this documentary series features the eccentric personality of Joe Exotic.
+				</label>
 			</div>
 		</div>
 		<div class="row answer-row">
@@ -80,7 +84,9 @@
 				Q: 
 			</div>
 			<div class="col-sm-11">
-				Debuting on Prime Video in March 2020, this comedy series imagines a world in which someone can purchase an afterlife that's (mostly) of their choosing.
+				<label for="answer3">
+					Debuting on Prime Video in March 2020, this comedy series imagines a world in which someone can purchase an afterlife that's (mostly) of their choosing.
+				</label>
 			</div>
 		</div>
 		<div class="row answer-row">
@@ -100,7 +106,9 @@
 				Q: 
 			</div>
 			<div class="col-sm-11">
-				Debuting (in film form) on Disney+ in July 2020, this popular Broadway musical centers on the first U.S. Secretary of the Treasury.
+				<label for="answer4">
+					Debuting (in film form) on Disney+ in July 2020, this popular Broadway musical centers on the first U.S. Secretary of the Treasury.
+				</label>
 			</div>
 		</div>
 		<div class="row answer-row">
@@ -120,7 +128,9 @@
 				Q: 
 			</div>
 			<div class="col-sm-11">
-				Debuting on Hulu in July 2020, this romantic comedy starring Andy Samberg and Cristin Milioti is often compared to the rom com classic Groundhog Day.
+				<label for="answer5">
+					Debuting on Hulu in July 2020, this romantic comedy starring Andy Samberg and Cristin Milioti is often compared to the rom com classic Groundhog Day.
+				</label>
 			</div>
 		</div>
 		<div class="row answer-row">
@@ -167,7 +177,7 @@
 
 		function markCorrect(input){
 			//add checkmark next to input
-			input.nextSibling.nextSibling.innerHTML = '<i class="fa fa-check-circle"></i>';
+			input.nextSibling.nextSibling.innerHTML = '<i class="fa fa-check-circle" aria-label="correct"></i>';
 
 			//remove red border (if answer was previously incorrect)
 			input.classList.remove("incorrect");
@@ -178,7 +188,7 @@
 
 		function markIncorrect(input){
 			//add X next to input
-			input.nextSibling.nextSibling.innerHTML = '<i class="fa fa-times-circle"></i>';
+			input.nextSibling.nextSibling.innerHTML = '<i class="fa fa-times-circle" aria-label="incorrect"></i>';
 
 			//remove green border (if answer was previously incorrect)
 			input.classList.remove("correct");
